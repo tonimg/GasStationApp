@@ -2,6 +2,7 @@
 <html lang="en" ng-app="frontEndApp">
 
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <title>Project FrontEnd</title>
     <!-- Latest compiled and minified CSS -->
@@ -10,6 +11,16 @@
     <style type="text/css">
     /*  * {
     border: 2px solid red;
+=======
+  <meta charset="UTF-8">
+  <title>Project FrontEnd</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <style type="text/css">
+  /*  * {
+    border: 2px solid red; Test commit
+>>>>>>> d9a266e5dc24c7fe6dad98d5905fc74bef61804c
   } */
     
     iframe {
@@ -36,6 +47,7 @@
 </header>
 
 <body>
+<<<<<<< HEAD
     <p>\\ {{ 4 + 4}} //</p>
     <div class="container">
         <div class="row">
@@ -57,6 +69,26 @@
                         </div>
                     </div>
                 </form>
+=======
+  <p>\\ {{ 4 + 4}} //</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3" ng-controller="searchController">
+        <form role="form">
+          <div class="form-group">
+            <div class="input-group">
+              <input ng-model="locationName" class="form-control" type="text" placeholder="put you location..." required/>
+              <div class="input-group-btn">
+                <button class="btn btn-success" type="submit" ng-click="searchLocation()">
+                  <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+                  <span>Get Stations</span>
+                </button>
+                <select >
+                  <option ng-repeat="location in listLocation">{{location.Provincia}}</option>
+                </select>
+                <!-- <h1 ng-repeat="location in listLocation ">{{locationName}}</h1> -->
+              </div>
+>>>>>>> d9a266e5dc24c7fe6dad98d5905fc74bef61804c
             </div>
         </div>
     </div>
@@ -72,6 +104,7 @@
             </ul>
         </nav>
     </div>
+<<<<<<< HEAD
     <script type="text/javascript" src="https://opensource.keycdn.com/angularjs/1.6.2/angular.min.js "></script>
     <script type="text/javascript">
     angular.module('frontEndApp', [])
@@ -89,6 +122,39 @@
                              console.log($scope.listLocation[0].Provincia)
 
                         })
+=======
+  </div>
+  <div class="container">
+    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11976.62394518014!2d2.17450885!3d41.370695600000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1493644710387" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+  </div>
+  <div class="container">
+    <nav>
+      <ul class="row">
+        <li class="col-xs-4"><i class="fa fa-map-o fa-5x" aria-hidden="true"></i></li>
+        <li class="col-xs-4"><i class="fa fa-list fa-5x" aria-hidden="true"></i></li>
+        <li class="col-xs-4"><i class="fa fa-filter fa-5x" aria-hidden="true"></i></li>
+      </ul>
+    </nav>
+  </div>
+  <script type="text/javascript" src="https://opensource.keycdn.com/angularjs/1.6.2/angular.min.js "></script>
+<!-- duplicate array -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.core.min.js"></script>
+
+  <script type="text/javascript">
+  angular.module('frontEndApp', [])
+    .controller('searchController', function($scope, apiService) {
+      $scope.searchLocation = function() {
+        var userLocation = $scope.locationName;
+        apiService.getLocation()
+          .then(function(response) {
+            // console.log(userLocation)
+            // console.log(response.data.ListaEESSPrecio[0])
+
+            $scope.listLocation = response.data.ListaEESSPrecio // nuestro objeto
+            // var test = $scope.listLocation.map(function(province) {
+             console.log($scope.listLocation)
+            //   return province.Provincia
+>>>>>>> d9a266e5dc24c7fe6dad98d5905fc74bef61804c
 
 
                         
