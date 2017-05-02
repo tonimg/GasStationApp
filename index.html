@@ -1,71 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="frontEndApp">
+<html lang="en" ng-app="gasStationApp">
 
 <head>
   <meta charset="UTF-8">
-  <title>Project FrontEnd</title>
+  <title>gasStatioApp</title>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-  <style type="text/css">
-  /*  * {
-    border: 2px solid red; Test commit
-  } */
-  
-  iframe {
-    width: 100%;
-    height: 450px;
-  }
-  
-  ul li {
-    list-style: none;
-  }
-  </style>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<header>
-  <!-- este header estará arriba del buscador y se ocultará con el click en la lupa -->
-  <!-- <div class="container">
-<div class="row">
-<div class="col-xs-6 col-xs-offset-3">
-    <h1>Gas Station finder</h1>
-</div>
-    
-</div>
-    
-</div> -->
-</header>
-
 <body>
-  <p>\\ {{ 4 + 4}} //</p>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3" ng-controller="searchController">
-        <form role="form">
-          <div class="form-group">
-            <div class="input-group">
-              <input ng-model="locationName" class="form-control" type="text" placeholder="put you location..." required/>
-              <div class="input-group-btn">
-                <button class="btn btn-success" type="submit" ng-click="searchLocation()">
-                  <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
-                  <span>Get Stations</span>
-                  <!-- <h1 ng-repeat="location in barcelonaStation ">{{locationName}}</h1> -->
-              </div>
-            </div>
-          </div>
-        </form>
+  <div class="container" >
 
-              <div">
-              <p >{{locationName}}</p>
-              	
-              </div>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <!--  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11976.62394518014!2d2.17450885!3d41.370695600000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1493644710387" frameborder="0" style="border:0" allowfullscreen></iframe> -->
-  </div>
-  <div class="container">
-    <nav>
+
+    <ng-view>{{title}}</ng-view>
+
+
+      <div class="container">
+    <nav class="hidden-lg">
       <ul class="row">
         <li class="col-xs-4"><i class="fa fa-map-o fa-5x" aria-hidden="true"></i></li>
         <li class="col-xs-4"><i class="fa fa-list fa-5x" aria-hidden="true"></i></li>
@@ -73,43 +24,24 @@
       </ul>
     </nav>
   </div>
-  <script type="text/javascript" src="https://opensource.keycdn.com/angularjs/1.6.2/angular.min.js "></script>
-  <!-- duplicate array -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.core.min.js"></script>
-  <script type="text/javascript">
-  angular.module('frontEndApp', [])
-    .controller('searchController', function($scope, apiService) {
-      $scope.searchLocation = function() {
-        var userLocation = $scope.locationName;
-        apiService.getLocation()
-          .then(function(response) {
-            // console.log(userLocation)
-            console.log(response.data.ListaEESSPrecio)
-            $scope.listLocation = response.data.ListaEESSPrecio // nuestro objeto
 
-            var barcelonaStation = []
-            angular.forEach($scope.listLocation, function(value, key) {
-              if (value.Provincia === 'BARCELONA') {
-                barcelonaStation.push(value)
 
-              }
-
-            })
-            console.log(barcelonaStation)
-          })
-      }
-    })
-    .factory('apiService', function($http) {
-      function getLocation() {
-        // var urlGas = 'https://serene-falls-80386.herokuapp.com/carburantes'
-        var urlGas = 'carburantes.json' // ruta local para trabajar con ella
-        return $http.get(urlGas)
-      }
-      return {
-        getLocation: getLocation
-      }
-    })
-  </script>
+    <footer class="footer">
+      <p>&copy; 2016 Company, Inc.</p>
+    </footer>
+  </div>
+  <!-- /container -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+  <!--  -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!--  -->
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/config.js"></script>
+  <script type="text/javascript" src="js/controllers/filtersController.js"></script>
+  <script type="text/javascript" src="js/controllers/homeController.js"></script>
+  <script type="text/javascript" src="js/controllers/mapController.js"></script>
 </body>
 
 </html>

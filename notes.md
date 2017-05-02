@@ -18,7 +18,7 @@ https://ngmap.github.io/#/!map_with_dynamic_center.html
 
 * Git clone <- clonas repositorio remoto en local
 * Git push -> subes los cambios locales a remoto
-* Git pull <- actualiza las tablas locales y actualiza los archivos. Realiza esás dos opciones. (Git Feth (actualiza tablas) + Git Merge(añade cambios))
+* Git pull <- actualiza las tablas locales y actualiza los archivos. Realiza esás dos opciones. (Git Fetch (actualiza tablas) + Git Merge(añade cambios))
 
 * Git branch new_name (para crear ramas y ver ramas que hay creadas)
 * Git checkout new_name (para cambiar de rama y trabajar en ella.)

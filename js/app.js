@@ -1,1 +1,1 @@
-angular.module('frontEndApp', [])
+angular.module('gasStationApp', ['ngRoute'])
