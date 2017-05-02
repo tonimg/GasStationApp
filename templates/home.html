@@ -15,16 +15,47 @@
     <form role="form">
       <div class="form-group">
         <div class="input-group">
-          <input ng-model="locationName" class="form-control" type="text" placeholder="put you location..." required/>
+          <!-- <input ng-model="locationName" class="form-control" type="text" placeholder="put you location..." required/> -->
           <div class="input-group-btn">
             <button class="btn btn-success" type="submit" ng-click="searchLocation()">
               <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
-              <span>Search</span>
+              <span>Get Gas Stations</span>
             </button>
           </div>
         </div>
       </div>
     </form>
+    <div class="row">
+
+      <style type="text/css">
+        .highlighted { background: yellow }
+      </style>
+      <form ng-show="gasStations.length" action="" method="POST" class="form-inline" role="form">
+
+        <div class="form-group">
+          <label for="">Filter results...</label>
+          <input ng-model="query" type="text" class="form-control" id="" placeholder="Input field">
+        </div>
+
+      </form>
+      <ul>
+        <li ng-repeat="station in gasStations | filter: query">
+          <h4>{{ station["Rótulo"] }}</h4>
+          <p>{{ station["Dirección"] }} {{ station["C.P."] }}</p>
+          <p>{{ station["Municipio"] }} - {{ station["Localidad"] }}, {{ station["Provincia"] }}</p>
+          <ul>
+            <li
+              ng-show='attribute.includes("Precio") && attribute.includes("Gasolina")'
+              ng-repeat="(attribute, value) in station"
+            >
+              <p><img width="20" src="https://image.flaticon.com/icons/png/128/115/115101.png"> {{attribute}} → {{value}}</p>
+
+            </li>
+          </ul>
+
+        </li>
+      </ul>
+    </div>
   </header>
   <nav class="hidden-lg">
     <ul class="row">
