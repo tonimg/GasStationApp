@@ -48,20 +48,21 @@
                 <button class="btn btn-success" type="submit" ng-click="searchLocation()">
                   <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
                   <span>Get Stations</span>
-                </button>
-                <select >
-                  <option ng-repeat="location in listLocation"></option>
-                </select>
-                <!-- <h1 ng-repeat="location in listLocation ">{{locationName}}</h1> -->
+                  <!-- <h1 ng-repeat="location in barcelonaStation ">{{locationName}}</h1> -->
               </div>
             </div>
           </div>
         </form>
+
+              <div">
+              <p >{{locationName}}</p>
+              	
+              </div>
       </div>
     </div>
   </div>
   <div class="container">
-   <!--  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11976.62394518014!2d2.17450885!3d41.370695600000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1493644710387" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+    <!--  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11976.62394518014!2d2.17450885!3d41.370695600000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1493644710387" frameborder="0" style="border:0" allowfullscreen></iframe> -->
   </div>
   <div class="container">
     <nav>
@@ -73,9 +74,8 @@
     </nav>
   </div>
   <script type="text/javascript" src="https://opensource.keycdn.com/angularjs/1.6.2/angular.min.js "></script>
-<!-- duplicate array -->
+  <!-- duplicate array -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.core.min.js"></script>
-
   <script type="text/javascript">
   angular.module('frontEndApp', [])
     .controller('searchController', function($scope, apiService) {
@@ -84,31 +84,31 @@
         apiService.getLocation()
           .then(function(response) {
             // console.log(userLocation)
-           console.log(response.data.ListaEESSPrecio)
+            console.log(response.data.ListaEESSPrecio)
             $scope.listLocation = response.data.ListaEESSPrecio // nuestro objeto
-            // var test = $scope.listLocation.map(function(province) {
-            console.log($scope.listLocation[0].Provincia)
-            
-            angular.forEach($scope.listLocation, function(value,key) {
-              if(value.Provincia == $scope.locationName.toUpperCase()) {
-                console.log(value)
+
+            var barcelonaStation = []
+            angular.forEach($scope.listLocation, function(value, key) {
+              if (value.Provincia === 'BARCELONA') {
+                barcelonaStation.push(value)
+
               }
-           })
-            
-            // })
+
+            })
+            console.log(barcelonaStation)
           })
       }
     })
-  .factory('apiService', function($http) {
-    function getLocation () {
-      // var urlGas = 'https://serene-falls-80386.herokuapp.com/carburantes'
-      var urlGas = 'carburantes.json' // ruta local para trabajar con ella
-      return $http.get(urlGas)
-    }
-    return {
-      getLocation: getLocation
-    }
-  })
+    .factory('apiService', function($http) {
+      function getLocation() {
+        // var urlGas = 'https://serene-falls-80386.herokuapp.com/carburantes'
+        var urlGas = 'carburantes.json' // ruta local para trabajar con ella
+        return $http.get(urlGas)
+      }
+      return {
+        getLocation: getLocation
+      }
+    })
   </script>
 </body>
 
