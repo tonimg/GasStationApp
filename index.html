@@ -43,16 +43,14 @@
         <form role="form">
           <div class="form-group">
             <div class="input-group">
-              <input ng-model="locationName" class="form-control" type="text" placeholder="put you location..."/>
+              <input ng-model="locationName" class="form-control" type="text" placeholder="put you location..." required/>
               <div class="input-group-btn">
                 <button class="btn btn-success" type="submit" ng-click="searchLocation()">
                   <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
                   <span>Get Stations</span>
                 </button>
-                <select ng-repeat="userLocation in listLocation | filter:userLocation">
-                  <ul>
-                  	<li>{{listLocation}}</li>
-                  </ul>
+                <select >
+                  <option ng-repeat="location in listLocation"></option>
                 </select>
                 <!-- <h1 ng-repeat="location in listLocation ">{{locationName}}</h1> -->
               </div>
@@ -83,23 +81,26 @@
     .controller('searchController', function($scope, apiService) {
       $scope.searchLocation = function() {
         var userLocation = $scope.locationName;
-        apiService.getLocation(userLocation)
+        apiService.getLocation()
           .then(function(response) {
             // console.log(userLocation)
            console.log(response.data.ListaEESSPrecio)
-          
-            $scope.listLocation = response.data.ListaEESSPrecio.Provincia // nuestro objeto
-console.log(userLocation)
+            $scope.listLocation = response.data.ListaEESSPrecio // nuestro objeto
+            // var test = $scope.listLocation.map(function(province) {
+            console.log($scope.listLocation[0].Provincia)
+            
+            angular.forEach($scope.listLocation, function(value,key) {
+              if(value.Provincia == $scope.locationName.toUpperCase()) {
+                console.log(value)
+              }
+           })
+            
+            // })
           })
       }
     })
-
-
-
-
-
   .factory('apiService', function($http) {
-    function getLocation() {
+    function getLocation () {
       // var urlGas = 'https://serene-falls-80386.herokuapp.com/carburantes'
       var urlGas = 'carburantes.json' // ruta local para trabajar con ella
       return $http.get(urlGas)
