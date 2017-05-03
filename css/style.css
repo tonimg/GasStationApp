@@ -8,3 +8,20 @@ iframe {
 ul li {
   list-style: none;
 }
+body {
+  background-image: url('/img/fondo.jpg');
+  background-size: cover;
+}
+
+/* Esta seccion es de filter */
+
+
+/* Fin seccion es de filter */
+/* Esta seccion es de map */
+
+
+/* Fin seccion es de map */
+/* Esta seccion es de home */
+
+
+/* Fin seccion es de home */

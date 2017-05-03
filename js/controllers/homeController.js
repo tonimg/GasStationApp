@@ -11,13 +11,6 @@ angular.module('gasStationApp')
           $scope.gasStations = gasStations
 
           console.log(gasStations)
-          // var barcelonaStation = []
-          // angular.forEach($scope.listLocation, function (value, key) {
-          //   if (value.Provincia === 'BARCELONA') {
-          //     barcelonaStation.push(value)
-          //   }
-          // })
-          // console.log(barcelonaStation)
         })
     }
   })
