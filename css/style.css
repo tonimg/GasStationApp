@@ -8,10 +8,28 @@ iframe {
 ul li {
   list-style: none;
 }
+
 body {
-  background-image: url('img/fondo.jpg');
+  background-image: url('/img/fondo.jpg');
   background-size: cover;
+  display:flex;
+  justify-content: center;
+  align-items: center;    
 }
+
+.cover {
+  margin-top: 10%;
+}
+
+.cover button {
+	background-color: #771B04;
+}
+ 
+/*.cover {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}*/
 
 /* Esta seccion es de filter */
 

@@ -1,5 +1,5 @@
 angular.module('gasStationApp')
-  .controller('homeController', function ($scope, apiService) {
+  .controller('homeController', function ($scope, $rootScope, apiService) {
     $scope.title = 'HOME'
     $scope.searchLocation = function () {
       var userLocation = $scope.locationName
@@ -9,8 +9,7 @@ angular.module('gasStationApp')
 
           var gasStations = response.data // nuestro objeto
           $scope.gasStations = gasStations
-
-          console.log(gasStations)
+          $rootScope.gasStations = $scope.gasStations
         })
     }
   })

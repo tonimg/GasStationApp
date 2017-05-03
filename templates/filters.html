@@ -1,99 +1,25 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="frontEndApp">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Project FrontEnd</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-
-<body>
-    <div class="container-fluid" ng-controller="searchController">
-        <header id="header-main">
-            <h1>GasStationApp</h1>
-            <form role="form">
-                <div class="form-group">
-                    <div class="input-group">
-                        <input ng-model="locationName" class="form-control" type="text" placeholder="put you location..." required/>  
-                        <div class="input-group-btn">
-                            <button class="btn btn-success" type="submit" ng-click="searchLocation()">
-                                <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
-                                <span>Search</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </header>
-        <main>
-        <section id="details-list">
-            <div class="row">
-                <div class="col-md-7">
-                    <h3>Filter by:</h3>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default">Fuel name</button>
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="caret"></span>
-                            <span class="sr-only">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">{{ station["Dirección"] }}</a></li>
-                            <li><a href="#">Gasolina 95 No de Protección</a></li>
-                            <li><a href="#">Gasolina 98</a></li>
-                            <li><a href="#">Diesel</a></li>
-                            <li><a href="#">Diesel mejorado</a></li>
-                        </ul>
-                    </div>
-                      
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default">Company</button>
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="caret"></span>
-                            <span class="sr-only">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default">Sort by</button>
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="caret"></span>
-                            <span class="sr-only">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Price</a></li>
-                            <li><a href="#">Distance</a></li>
-                        </ul>
-                    </div>
-
-                    <p>Found {{ listGasStations.length }} gas stations</hp>
-
-                </div>
-
-             </section>
-
-             <section id="display-map" ng-include src="'js/templates/map.html'" ng-controller="searchController"></section>
-
-
-                <nav class="hidden-lg">
-                    <ul class="row">
-                        <li class="col-xs-4"><i class="fa fa-map-o fa-5x" aria-hidden="true"></i></li>
-                        <li class="col-xs-4"><i class="fa fa-list fa-5x" aria-hidden="true"></i></li>
-                        <li class="col-xs-4"><i class="fa fa-filter fa-5x" aria-hidden="true"></i></li>
-                    </ul>
-                </nav>
-        </main>
+<div class="row">
+      <form ng-show="gasStations.length" action="" method="POST" class="form-inline" role="form">
+        <div class="form-group">
+          <label for="">Filter results...</label>
+          <input ng-model="query" type="text" class="form-control" id="" placeholder="Input field">
         </div>
-</body>
 
-</html>
+      </form>
+      <ul>
+        <li ng-repeat="station in gasStations | filter: query">
+          <h4>{{ station["Rótulo"] }}</h4>
+          <p>{{ station["Dirección"] }} {{ station["C.P."] }}</p>
+          <p>{{ station["Municipio"] }} - {{ station["Localidad"] }}, {{ station["Provincia"] }}</p>
+          <ul>
+            <li
+              ng-show='attribute.includes("Precio") && attribute.includes("Gasolina")'
+              ng-repeat="(attribute, value) in station"
+            >
+              <p><img width="20" src="https://image.flaticon.com/icons/png/128/115/115101.png"> {{attribute}} → {{value}}</p>
+
+            </li>
+          </ul>
+
+        </li>
+      </ul>
