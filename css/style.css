@@ -9,22 +9,17 @@ ul li {
   list-style: none;
 }
 
-body {
-  background-image: url('/img/fondo.jpg');
-  background-size: cover;
+.cover {
+  height: 100vh;
   display:flex;
   justify-content: center;
-  align-items: center;    
-}
-
-.cover {
-  margin-top: 10%;
+  align-items: center;
 }
 
 .cover button {
 	background-color: #771B04;
 }
- 
+
 /*.cover {
 	display: flex;
 	justify-content: center;

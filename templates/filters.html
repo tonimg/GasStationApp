@@ -7,7 +7,7 @@
 
       </form>
       <ul>
-        <li ng-repeat="station in gasStations | filter: query">
+        <li ng-repeat="station in stations | filter: query">
           <h4>{{ station["Rótulo"] }}</h4>
           <p>{{ station["Dirección"] }} {{ station["C.P."] }}</p>
           <p>{{ station["Municipio"] }} - {{ station["Localidad"] }}, {{ station["Provincia"] }}</p>

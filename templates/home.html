@@ -1,13 +1,33 @@
+<style type="text/css">
+  .search-form {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .search-form h1 {
+    color: white;
+  }
+  .search-form input, .search-form select {
+    width: 100% !important;
+  }
+  .search-form * {
+    margin-top: 20px;
+  }
+</style>
 <div class="cover">
     <form  class="form-inline search-form" role="form">
+        <h1>GAS STATIONS APP 2017</h1>
         <div class="form-group">
             <label class="sr-only" for="">label</label>
-            <input ng-model="query" type="text" class="form-control input-lg" id="inputBarcelona" value="Barcelona" placeholder="Barcelona">
+            <input type="text" class="form-control input-lg" id="inputBarcelona" value="Barcelona" placeholder="Barcelona">
+            <select class="input-lg" ng-model="queryLocation">
+                <option ng-repeat="station in gasStations">{{ station["Municipio"] }}</option>
+            </select>
         </div>
-         <button ng-click="searchLocation()" type="submit" class="btn btn-lg btn-primary">Search</button>
+         <button ng-click="getStations()" type="submit" class="btn btn-lg btn-primary">Search</button>
     </form>
 </div>
-<div class="cover2">
+<!-- <div class="cover2">
     <form class="form-inline search-form" role="form">
         <div class="form-group">
             <label class="sr-only" for="">label</label>
@@ -15,9 +35,9 @@
                 <option ng-repeat="station in gasStations" ng-model="queryMunicipio">{{ station["Municipio"] }}</option>
             </select>
         </div>
-       
+
     </form>
-</div>
+</div> -->
 <!-- <ul>
         <li ng-repeat="station in gasStations | filter: query">
           <h4>{{ station["Rótulo"] }}</h4>

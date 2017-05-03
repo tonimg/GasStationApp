@@ -1,7 +1,8 @@
 angular.module('gasStationApp')
-  .controller('homeController', function ($scope, $rootScope, apiService) {
+  .controller('homeController', function ($scope, $location, apiService) {
     $scope.title = 'HOME'
-    $scope.searchLocation = function () {
+
+    function searchLocation () {
       var userLocation = $scope.locationName
       apiService.getLocation()
         .then(function (response) {
@@ -9,7 +10,11 @@ angular.module('gasStationApp')
 
           var gasStations = response.data // nuestro objeto
           $scope.gasStations = gasStations
-          $rootScope.gasStations = $scope.gasStations
         })
+    }
+    searchLocation()
+
+    $scope.getStations = function () {
+      $location.path('/filters/' + $scope.queryLocation)
     }
   })

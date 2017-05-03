@@ -5,7 +5,7 @@ angular.module('gasStationApp')
         templateUrl: '/templates/home.html',
         controller: 'homeController'
       })
-      .when('/filters', {
+      .when('/filters/:location', {
         templateUrl: '/templates/filters.html',
         controller: 'filtersController'
       })
