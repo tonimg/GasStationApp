@@ -1,23 +1,59 @@
 <div class="container">
+    <h1>GAS STATIONS APP 2017</h1>
   <div class="row">
-      <h1>GAS STATIONS APP 2017</h1>
+  <div class="col-md-6">
+    <form class="form-inline" role="form">
+      <div class="form-group">
+        <label for="">Filter results...</label>
+        <input ng-model="query" type="text" class="form-control" id="" placeholder="Input field">
+      </div>
+    </form>
+    <ul>
+      <li ng-repeat="station in stations | filter: query">
+        <h4>{{ station["Rótulo"] }}</h4>
+        <p>{{ station["Dirección"] }} {{ station["C.P."] }}</p>
+        <p>{{ station["Municipio"] }} - {{ station["Localidad"] }}, {{ station["Provincia"] }}</p>
+        <ul>
+          <li ng-show='attribute.includes("Precio") && attribute.includes("Gasolina")' ng-repeat="(attribute, value) in station">
+            <p><img width="20" src="https://image.flaticon.com/icons/png/128/115/115101.png"> {{attribute}} → {{value}}</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </div>
-  <form class="form-inline" role="form">
-    <div class="form-group">
-      <label for="">Filter results...</label>
-      <input ng-model="query" type="text" class="form-control" id="" placeholder="Input field">
-    </div>
-  </form>
-  <ul>
-    <li ng-repeat="station in stations | filter: query">
-      <h4>{{ station["Rótulo"] }}</h4>
-      <p>{{ station["Dirección"] }} {{ station["C.P."] }}</p>
-      <p>{{ station["Municipio"] }} - {{ station["Localidad"] }}, {{ station["Provincia"] }}</p>
-      <ul>
-        <li ng-show='attribute.includes("Precio") && attribute.includes("Gasolina")' ng-repeat="(attribute, value) in station">
-          <p><img width="20" src="https://image.flaticon.com/icons/png/128/115/115101.png"> {{attribute}} → {{value}}</p>
-        </li>
-      </ul>
-    </li>
-  </ul>
+  <div class="col-md-6">
+
+<div>
+
+<!-- Prueba filtrado por botones seleccionando combustible -->
+
+  <table class="orderBy">
+    <tr>
+      <th>
+        <button ng-click="sortBy('name')">Company</button>
+        <span class="sortorder" ng-show="propertyName === 'name'"></span>
+      </th>
+      <th>
+        <button ng-click="sortBy('price')">Price Gasolina 95</button>
+        <span class="sortorder" ng-show="propertyName === 'price'"></span>
+      </th>
+            <th>
+        <button ng-click="sortBy('price')">Price Gasolina 98</button>
+        <span class="sortorder" ng-show="propertyName === 'price'"></span>
+      </th>
+            <th>
+        <button ng-click="sortBy('price')">Price Gasoleo A</button>
+        <span class="sortorder" ng-show="propertyName === 'price'"></span>
+      </th>
+    </tr>
+    <tr ng-repeat="station in stations" | orderBy:propertyName:reverse">
+      <td>{{ station["Rótulo"] }}</td>
+      <td>{{ station["Precio Gasolina 95 Protección"] }}</td>
+      <td>{{ station["Precio Gasolina  98"] }}</td>
+      <td>{{ station["Precio Nuevo Gasoleo A"] }}</td>
+    </tr>
+  </table>
+</div>
+  </div>
+  </div>
 </div>
