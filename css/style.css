@@ -1,39 +1,50 @@
 /* HOME */
 
-iframe {
-  width: 100%;
-  height: 450px;
-}
-
-ul li {
-  list-style: none;
-}
-
 .cover {
   height: 100vh;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .cover button {
-	background-color: #771B04;
+  background-color: #771B04;
 }
 
-/*.cover {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}*/
+.search-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.search-form h1 {
+  color: white;
+}
+
+.search-form input,
+.search-form select {
+  width: 100% !important;
+}
+
+.search-form * {
+  margin-top: 20px;
+}
+.search-form h1{
+  color: black;
+}
 
 /* Esta seccion es de filter */
 
 
 /* Fin seccion es de filter */
+
+
 /* Esta seccion es de map */
 
 
 /* Fin seccion es de map */
+
+
 /* Esta seccion es de home */
 
 
