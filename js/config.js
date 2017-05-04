@@ -10,7 +10,6 @@ angular.module('gasStationApp')
         controller: 'filtersController'
       })
       .when('/map', {
-        templateUrl: 'templates/map.html',
         controller: 'mapController'
       })
   })
