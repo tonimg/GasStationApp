@@ -1,27 +1,34 @@
-<div class="container">
-  <h1>GAS STATIONS APP 2017</h1>
-  <div class="row">
-    <div class="col-md-6">
-      <form class="form-inline" role="form">
-        <div class="form-group">
-          <label for="">Filter results...</label>
-          <input ng-model="query" type="text" class="form-control" id="" placeholder="Input field">
-        </div>
-      </form>
-      <ul>
-        <li ng-repeat="station in stations | filter: query">
-          <h4>{{ station["Rótulo"] }}</h4>
-          <p>{{ station["Dirección"] }} {{ station["C.P."] }}</p>
-          <p>{{ station["Municipio"] }} - {{ station["Localidad"] }}, {{ station["Provincia"] }}</p>
-          <ul>
-            <li ng-show='attribute.includes("Precio") && attribute.includes("Gasolina")' ng-repeat="(attribute, value) in station">
-              <p><img width="20" src="https://image.flaticon.com/icons/png/128/115/115101.png"> {{attribute}} → {{value}}</p>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-6">
+<section>
+  <div class="container list-details">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <form role="form">
+          <div class="form-group">
+            <h3>Filter by:</h3>
+            <input ng-model="query" type="text" class="form-control" id="input-filter" placeholder="Enter street, company, postcode...">
+          </div>
+        </form>
+        <ul class='list-group'>
+          <li ng-repeat="station in stations | filter: query">
+            <div class="panel panel-default">
+              <div class="panel-heading list-head">
+                <div class="heading-list">
+                  <span>{{ station["Rótulo"] }}</span> - {{ station["Dirección"] }}, {{ station["C.P."] }}
+                  <p>{{ station["Municipio"] }} - {{ station["Localidad"] }}, {{ station["Provincia"] }}</p>
+                </div>
+                <i class="glyphicon glyphicon-map-marker"></i>
+              </div>
+              <div class="panel-body">
+                <ul>
+                  <li ng-show='attribute.includes("Precio Gasolina") || attribute.includes("Gasoleo A")' ng-repeat="(attribute, value) in station">
+                    <p><img width="20" src="https://image.flaticon.com/icons/png/128/115/115101.png"> {{attribute}} → {{value}}</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
+</section>

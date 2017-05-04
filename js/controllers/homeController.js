@@ -6,15 +6,13 @@ angular.module('gasStationApp')
       var userLocation = $scope.locationName
       apiService.getLocation()
         .then(function (response) {
-          console.log(response)
-
           var gasStations = response.data // nuestro objeto
           $scope.gasStations = gasStations
         })
     }
     searchLocation()
 
-    $scope.getStations = function () {
+    $scope.getStationsByTown = function () {
       $location.path('/filters/' + $scope.queryLocation)
     }
   })

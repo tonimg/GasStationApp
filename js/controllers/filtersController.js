@@ -1,10 +1,8 @@
 angular.module('gasStationApp')
   .controller('filtersController', function ($scope, $rootScope, $routeParams, apiService) {
-    var currentLocation = $routeParams.location
-    apiService.getStations(currentLocation)
+    var idTown = $routeParams.location
+    apiService.getStationsByTown(idTown)
       .then(function (stations) {
-        console.log('from controller filtersController...')
-        console.log(stations)
         $scope.stations = stations
       })
   })
