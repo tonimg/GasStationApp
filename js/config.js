@@ -5,12 +5,12 @@ angular.module('gasStationApp')
         templateUrl: 'templates/home.html',
         controller: 'homeController'
       })
-      .when('filters/:location', {
-        templateUrl: '/templates/filters.html',
+      .when('/filters/:location', {
+        templateUrl: 'templates/filters.html',
         controller: 'filtersController'
       })
       .when('/map', {
-        templateUrl: '/templates/map.html',
+        templateUrl: 'templates/map.html',
         controller: 'mapController'
       })
   })
