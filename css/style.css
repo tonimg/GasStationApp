@@ -34,28 +34,7 @@
 }
 
 /* Esta seccion es de filter */
-.orderBy{
-  border-collapse: collapse;
-}
 
-.orderBy th {
-  border-bottom: 1px solid;
-}
-.orderBy td, .orderBy th {
-  border-left: 1px solid;
-  padding: 5px 10px;
-}
-.orderBy td:first-child, .orderBy th:first-child {
-  border-left: none;
-}
-
-.sortorder:after {
-  content: '\25b2';   // BLACK UP-POINTING TRIANGLE
-}
-.sortorder.reverse:after {
-  content: '\25bc';   // BLACK DOWN-POINTING TRIANGLE
-}
-}
 
 /* Fin seccion es de filter */
 

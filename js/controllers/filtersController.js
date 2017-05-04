@@ -7,28 +7,4 @@ angular.module('gasStationApp')
         console.log(stations)
         $scope.stations = stations
       })
-
-/// for orderBy test
-
-    $scope.propertyName = 'price'
-    $scope.reverse = true
-
-    $scope.sortBy = function (propertyName) {
-      $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false
-      $scope.propertyName = propertyName
-    }
-/// /
-
-    // $scope.title = 'Filters'
-    // $scope.searchLocation = function () {
-    //   var userLocation = $scope.locationName
-    //   apiService.getLocation()
-    //     .then(function (response) {
-    //       console.log(response)
-
-    //       var gasStations = response.data // nuestro objeto
-    //       $scope.gasStations = gasStations
-    //       $rootScope.gasStations = $scope.gasStations
-    //     })
-    // }
   })

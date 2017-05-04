@@ -2,7 +2,7 @@ angular.module('gasStationApp')
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'templates/home.html',
+        templateUrl: '/templates/home.html',
         controller: 'homeController'
       })
       .when('/filters/:location', {
