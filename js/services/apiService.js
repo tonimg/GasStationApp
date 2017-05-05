@@ -22,13 +22,20 @@ angular.module('gasStationApp')
                     })
                   })
       }
-
 // Get the IdTown and compare with another json file.
       function getStationsByTown (idTown) {
         // var urlGas = 'https://serene-falls-80386.herokuapp.com/carburantes'
         var urlGas = 'data/stations.json' // ruta local para trabajar con ella
         return $http.get(urlGas)
                   .then(function (response) {
+                    var filterNull = response.data
+                    for (var i in filterNull) {
+                      for (prop in filterNull[i]) {
+                        if (filterNull[i][prop] === null) {
+                          filterNull[i][prop] = '1,109'
+                        }
+                      }
+                    }
                     return response.data
                   })
                   .then(function (stations) {
@@ -37,7 +44,6 @@ angular.module('gasStationApp')
                     })
                   })
       }
-
       return {
         getLocation: getLocation,
         getStations: getStations,
