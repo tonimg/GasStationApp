@@ -33,6 +33,14 @@ SublimeText - Text editor
 
 This project is licensed under the MIT License - see the LICENSE.md file for details
 
+## API Reference
+
+- [ngMap - GoogleMap AngularJS Directive](https://github.com/allenhwkim/angularjs-google-maps)
+- [ngMap documentation](https://ngmap.github.io/)
+- [ngMap directives](https://rawgit.com/allenhwkim/angularjs-google-maps/master/build/docs/index.html)
+- [Google Maps API](https://developers.google.com/maps/documentation/javascript/)
+- [Sede electrónica del Ministerio](https://sede.minetur.gob.es/es-ES/datosabiertos/catalogo/precios-carburantes)
+
 ## Acknowledgments
 
 - [SkylabCoders](http://skylabcoders.com/)

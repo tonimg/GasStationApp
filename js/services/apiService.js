@@ -1,5 +1,4 @@
-// Get locacions of province
-
+// Get locacions into province
 angular.module('gasStationApp')
     .factory('apiService', function ($http) {
       function getLocation () {
@@ -8,7 +7,7 @@ angular.module('gasStationApp')
         return $http.get(urlGas)
       }
 
-// Get all stations of provinces
+// Get all stations of locations
       function getStations (location) {
         // var urlGas = 'https://serene-falls-80386.herokuapp.com/carburantes'
         var urlGas = 'data/stations.json' // ruta local para trabajar con ella
