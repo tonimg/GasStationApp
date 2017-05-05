@@ -196,11 +196,7 @@ justify-content: space-between;
 }
 
 
-@media (max-width: 320px) {
-  .form-group {
-    margin-top: 20%;
-  }
-}
+
 
 
 /* ***** price buttons ***** */
@@ -211,9 +207,23 @@ justify-content: space-between;
 
 .list-prices {
     list-style: none;
-    padding-left: ;
+    padding-left: 3%;
+
 }
 
 .list-prices img {
     margin-right: 8px;
+}
+
+@media (max-width: 320px) {
+  .form-group {
+    margin-top: 20%;
+  }
+  
+}
+@media (max-width: 768px) {
+    .list-prices {
+    padding:0;
+
+}
 }
