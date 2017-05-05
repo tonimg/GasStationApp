@@ -1,16 +1,16 @@
 <section>
   <div class="container list-details">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
+      <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <form role="form">
           <div class="form-group">
             <h3>Filter by:</h3>
-            <input ng-model="query" type="text" class="form-control" id="input-filter" placeholder="Enter street, company, postcode...">
+            <input ng-model="query" type="text" class="form-control" id="input-filter" placeholder="Enter street, company, postcode..." autofocus="autofocus">
           </div>
         </form>
         <ul class='list-group'>
           <li ng-repeat="station in stations | filter: query">
-            <div class="panel panel-default">
+            <div class="panel panel-default main-panel">
               <div class="panel-heading list-head">
                 <div class="heading-list">
                   <span>{{ station["Rótulo"] }}</span> - {{ station["Dirección"] }}, {{ station["C.P."] }}
@@ -19,7 +19,7 @@
                 <i class="glyphicon glyphicon-map-marker"></i>
               </div>
               <div class="panel-body">
-                <ul>
+                <ul class="list-prices">
                   <li ng-show='attribute.includes("Precio Gasolina") || attribute.includes("Gasoleo A")' ng-repeat="(attribute, value) in station">
                     <p><img width="20" src="https://image.flaticon.com/icons/png/128/115/115101.png"> {{attribute}} → {{value}}</p>
                   </li>

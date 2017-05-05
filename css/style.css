@@ -167,3 +167,16 @@ justify-content: space-between;
   }
 }
 
+/* ***** price buttons ***** */
+
+.main-panel {
+    box-shadow:0 2px 9px;
+}
+
+.list-prices {
+    list-style: none;
+}
+
+.list-prices img {
+    margin-right: 8px;
+}
