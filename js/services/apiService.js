@@ -32,7 +32,7 @@ angular.module('gasStationApp')
                     for (var i in filterNull) {
                       for (prop in filterNull[i]) {
                         if (filterNull[i][prop] === null) {
-                          filterNull[i][prop] = '1,109'
+                          filterNull[i][prop] = 'Not available'
                         }
                       }
                     }
