@@ -81,6 +81,10 @@
 
 .search-form input {
     color: #b2b2b2;
+
+}
+
+#inputBarcelona {
     pointer-events: none;
 }
 
@@ -137,6 +141,9 @@
   .cover p {
     font-size: 20px;
   }
+  .wall {
+    background-position: 30% 20%;;
+}
 }
 
 /* template filters
@@ -146,18 +153,29 @@ section h3 {
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
 }
+
 .list-details {
   margin-top: 6%;
 }
+.list-details p{
+    font-size: 18px;
+    margin-bottom: 3%;
+}
+
+p strong {
+    color: #E74C3C;
+}
+
 
 #input-filter {
-  margin-bottom: 8%;
+  margin-bottom: 3%;
 }
 
 .list-group {
   list-style: none;
 }
 .list-head {
+    padding-left: 3%;
 display: flex;
 justify-content: space-between;
 }
@@ -167,22 +185,23 @@ justify-content: space-between;
  font-family: 'Varela Round', sans-serif;
  font-size: 20px; 
 }
+.label-time {
+    color: #9f9fa3;
+}
 
 .list-group i {
-    padding-top: 3%;
-    padding-right: 4%;
-    font-size: 25px;
+    padding-top: 10px;
+    font-size: 16px;
+    color: #E74C3C;
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 320px) {
   .form-group {
-    margin-top: 14%;
-  }
-  .list-details .form-control input {
-    font-size: 18px;
+    margin-top: 20%;
   }
 }
+
 
 /* ***** price buttons ***** */
 
@@ -192,6 +211,7 @@ justify-content: space-between;
 
 .list-prices {
     list-style: none;
+    padding-left: ;
 }
 
 .list-prices img {

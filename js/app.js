@@ -1,1 +1,1 @@
-angular.module('gasStationApp', ['ngRoute'])
+angular.module('gasStationApp', ['ngRoute', 'ngMap'])

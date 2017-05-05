@@ -13,6 +13,7 @@ angular.module('gasStationApp')
     searchLocation()
 
     $scope.getStationsByTown = function () {
-      $location.path('/filters/' + $scope.queryLocation)
+      var codeLocation = $scope.queryLocation.split(':')[0]
+      $location.path('/filters/' + codeLocation)
     }
   })

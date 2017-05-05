@@ -8,11 +8,12 @@
       <div class="form-group inner-addon left-addon">
         <label class="sr-only" for="">label</label>
         <i class="glyphicon glyphicon-search"></i>
-        <input type="text" class="form-control input-lg" id="inputBarcelona" value="  Barcelona" placeholder="Barcelona" disabled>
-        <select class="input-lg" ng-model="queryLocation" required>
-          <option ng-selected="selected" value="">Select a location</option>
-          <option ng-repeat="station in gasStations" value="{{ station.id }}">{{ station.name }}</option>
-        </select>
+        <input type="text" class="form-control input-lg" id="inputBarcelona" value="  Barcelona" placeholder="Barcelona" disabled />
+
+        <input class="input-lg" type="text" ng-model="queryLocation" required list="locations" placeholder="Start typing and select a value from the list...">
+         <datalist id="locations">
+          <option ng-repeat="station in gasStations" value="{{ station.id }}:{{ station.name }}">{{ station.name }}</option>
+        </datalist>
       </div>
       <button ng-click="getStationsByTown()" type="submit" class="btn btn-lg btn-primary">SEE GAS STATIONS</button>
       <label for="" class="label-home">Coming soon more cities</label>
