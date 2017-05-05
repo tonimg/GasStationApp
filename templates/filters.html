@@ -8,7 +8,7 @@
             <input ng-model="query" type="text" class="form-control input-lg" id="input-filter" placeholder="Enter street, company, postcode..." autofocus="autofocus">
           </div>
           <div>
-            <p>Found <strong>{{(stations | filter:{ name : query}).length}}</strong> out of <strong>{{stations.length}}</strong> gas stations.</p>
+            <p>Found <strong>{{stations.length}}</strong> gas stations.</p>
         </div>
         </form>
         <ul class='list-group'>
