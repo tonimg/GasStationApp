@@ -9,19 +9,18 @@
           </div>
           <div>
             <p>Found <strong>{{stations.length}}</strong> gas stations.</p>
-        </div>
+          </div>
         </form>
         <ul class='list-group'>
           <li ng-repeat="station in stations | filter: query">
             <div class="panel panel-default main-panel">
               <div class="panel-heading list-head">
                 <div class="heading-list">
-                  <span>{{ station["Rótulo"] }}</span> 
+                  <span>{{ station["Rótulo"] }}</span>
                   <p><i class="glyphicon glyphicon-map-marker"></i> {{ station["Dirección"] }}, {{ station["C.P."] }}</p>
                   <p>{{ station["Municipio"] }} - {{ station["Localidad"] }}, {{ station["Provincia"] }}</p>
                   <p class="label-time"><i class="glyphicon glyphicon-time"></i> {{ station["Horario"] }}</p>
                 </div>
-                
               </div>
               <div class="panel-body">
                 <ul class="list-prices">
@@ -31,7 +30,7 @@
                 </ul>
               </div>
               <ng-map zoom="14" center="[{{ station['Latitud'].replace(',','.') }}, {{ station['Longitud (WGS84)'].replace(',','.') }}]">
-                <marker position="[{{ station['Latitud'].replace(',','.') }}, {{ station['Longitud (WGS84)'].replace(',','.') }}]"></marker>
+                <marker icon="img/icon-marker.png" animation="DROP" position="[{{ station['Latitud'].replace(',','.') }}, {{ station['Longitud (WGS84)'].replace(',','.') }}]"></marker>
               </ng-map>
             </div>
           </li>
