@@ -25,7 +25,7 @@
               <div class="panel-body">
                 <ul class="list-prices">
                   <li ng-show='attribute.includes("Precio Gasolina") || attribute.includes("Gasoleo A")' ng-repeat="(attribute, value) in station">
-                    <p><img width="20" src="https://image.flaticon.com/icons/png/128/115/115101.png"> {{attribute}} → {{value}}</p>
+                    <p><img width="20" src="https://image.flaticon.com/icons/png/128/115/115101.png"> {{attribute}} → {{value || 'Not available'}}</p>
                   </li>
                 </ul>
               </div>
