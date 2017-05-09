@@ -27,14 +27,6 @@ angular.module('gasStationApp')
         var urlGas = 'data/stations.json' // ruta local para trabajar con ella
         return $http.get(urlGas)
                   .then(function (response) {
-                    var filterNull = response.data
-                    for (var i in filterNull) {
-                      for (prop in filterNull[i]) {
-                        if (filterNull[i][prop] === null) {
-                          filterNull[i][prop] = 'Not available'
-                        }
-                      }
-                    }
                     return response.data
                   })
                   .then(function (stations) {
